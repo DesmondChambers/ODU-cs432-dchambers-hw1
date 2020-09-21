@@ -89,6 +89,23 @@ Your program must do the following:
 
 Show that the program works on 3 different URIs, one of which must be https://www.cs.odu.edu/~mweigle/courses/cs532/pdfs.html
 
+* https://www.cs.odu.edu/~mweigle/courses/cs532/pdfs.html 
+
+![alt text](result1.png "result1")
+
+* https://www.cs.odu.edu/~cs411/f20/Directory/outline/
+
+![alt text](result2.png "result2")
+
+* https://www.cs.odu.edu/~411silver/labs.html
+
+![alt text](result3.png "result3")
+
+## Python code
+
+* [pdfFinder.py](./pdfFinder.py)
+
+
 Here is a snippet of the expected operation:
 
 ```

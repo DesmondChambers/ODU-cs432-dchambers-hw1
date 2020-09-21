@@ -1,13 +1,24 @@
+#!/usr/bin/python3
+# pdfFinder.py
+
+#                                   References
+# King, Code Monkey. “How to Scrape PDF Files Using Python + Requests and BeautifulSoup.” YouTube, 
+#       YouTube, 6 June 2020, www.youtube.com/watch?v=VDd6dVrYzao. 
+#
+#   the above source was used in creating the solution below.
+#
+
 # packages
+import sys
 import requests
 from bs4 import BeautifulSoup
 import re
 
 # target URL
-url = 'https://www.cs.odu.edu/~mweigle/courses/cs532/pdfs.html'
+url = ("{}" . format(sys.argv[1]))
 
 # make HTTP GET request to the target URL
-print('URI to search: ', url)
+print('\nURI to search: {}\n' .format(url))
 response = requests.get(url)
 
 # parse content
