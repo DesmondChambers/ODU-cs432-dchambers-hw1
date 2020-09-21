@@ -45,7 +45,7 @@ For the above graph, list the nodes (in alphabetical order) that are each of the
     * L
 * Tendrils: 
     * indicate if the tendril is reachable from IN or can reach OUT
-        * This graph seem to have any tendrls.
+        * This graph seem not to have any tendrils.
 * Tubes: 
     * explain how the nodes serve as tubes
         * O

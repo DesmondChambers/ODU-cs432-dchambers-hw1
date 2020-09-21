@@ -1,20 +1,40 @@
-#!/usr/bin/python3
-# pdfFinder.py
-
-import sys
-from bs4 import BeautifulSoup
+# packages
 import requests
+from bs4 import BeautifulSoup
 import re
 
-address = sys.argv[1]
+# target URL
+url = 'https://www.cs.odu.edu/~mweigle/courses/cs532/pdfs.html'
 
-response = requests.get(address, params={'q': 'LSU'})
+# make HTTP GET request to the target URL
+print('URI to search: ', url)
+response = requests.get(url)
 
-pattern = re.compile('\/url\?q=([^&]+)')
+# parse content
+content = BeautifulSoup(response.text, 'lxml')
 
-soup = BeautifulSoup(response.text)
-for links in soup.find_all('a'):
-  href = links.get('href')
-  m = pattern.match(href)
-  if (m != None):
-    print (m.groups()[0])
+# extract URLs referencing PDF documents
+all_urls = content.find_all('a')
+
+# loop over all URLs
+for url in all_urls:
+    # try URLs containing 'href' attribute
+    try:
+        # pick up only those URLs containing 'pdf'
+        # within 'href' attribute
+        if 'pdf' in url['href']:
+            # init PDF url
+            pdf_url = ''
+
+            pdf_url = url['href']
+            pdf_response = requests.get(pdf_url) 
+
+  
+            print ("URI: {}".format(pdf_response.request.url))
+            print('Final URI: ', pdf_url)   
+            print ("Content-Length: {} bytes\n\n".format(pdf_response.headers['Content-Length']))
+            
+    
+    # skip all the other URLs
+    except:
+        pass
